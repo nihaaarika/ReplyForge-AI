@@ -109,7 +109,7 @@ MODELS = {
 
 # ---------------------------- API HELPERS ----------------------------
 def call_groq(prompt: str, system_prompt: str = "", model: str = "llama-3.3-70b-versatile", temperature: float = 0.3) -> Optional[str]:
-    api_key = st.session_state.get("api_key_input", GROQ_API_KEY)
+    api_key = os.getenv("GROQ_API_KEY") 
     if not api_key:
         st.error("Please enter your Groq API Key in the sidebar.")
         return None
